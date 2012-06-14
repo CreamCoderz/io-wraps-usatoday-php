@@ -1,5 +1,7 @@
-io-wraps-usatoday
-=================
+io-wraps-usatoday-php
+=====================
+v0.5 - PHP wrapper for USA TODAY Articles and Census API.
+
 Unpack this package into a directory at the "htdocs" level on any
 web server stack with PHP. The references to the dependences are
 all relative.
