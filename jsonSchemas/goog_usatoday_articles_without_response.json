@@ -1,0 +1,132 @@
+{
+	"kind": "discovery#restDescription",
+	"discoveryVersion": "v1",
+	"title": "Articles API",
+	"description": "",
+	"protocol": "rest",
+	"name": "articlesapi",
+	"version": "1.0",
+	"basePath": "open/",
+	"rootUrl": "http://api.usatoday.com/",
+	"servicePath": "open/",
+	"baseUrl": "http://api.usatoday.com/open/",
+	"schemas": {
+		"StoryList": {
+			"id": "StoryList",
+			"type": "object",
+			"properties": {
+				"stories": {
+					"type": "array",
+					"description": "A list of stories.",
+					"items": {
+						"$ref": "Story"
+					}
+				}
+			}
+		},
+		"Story": {
+			"id": "Story",
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string",
+					"description": "Description of the story"
+				},
+				"link": {
+					"type": "string",
+					"description": "URL to the story"
+				},
+				"title": {
+					"type": "string",
+					"description": "Title of the story"
+				}
+			}
+		}
+	},
+	"resources": {
+		"ArticlesMethods": {
+			"methods": {
+				"TopNews": {
+					"path": "articles/topnews/{section}",
+					"httpMethod": "GET",
+					"description": "Use this to request Top News by section. Default is home",
+					"parameters": {
+						"section": {
+							"type": "string",
+							"required": true,
+							"default": "home",
+							"description": "Use this to request Top News by section. Default is home",
+							"enum": ["home", "news", "travel", "money", "sports", "life", "tech", "weather", "test", "nation", "offbeat", "washington", "world", "religion", "opinion", "yl-health", "nfl", "mlb", "nba", "nhl", "collegefootball", "collegebasketball", "highschool", "motorsports", "golf", "soccer", "horseracing", "books", "people", "music", "reviews"],
+							"location": "path",
+							"enumDescriptions": ["home", "news", "travel", "money", "sports", "life", "tech", "weather", "test", "nation", "offbeat", "washington", "world", "religion", "opinion", "yl-health", "nfl", "mlb", "nba", "nhl", "collegefootball", "collegebasketball", "highschool", "motorsports", "golf", "soccer", "horseracing", "books", "people", "music", "reviews"]
+						},
+						"count": {
+							"type": "string",
+							"required": false,
+							"default": "10",
+							"description": "Use this value to set the number of incoming stories. (default is 10)",
+							"location": "query"
+						},
+						"csp": {
+							"type": "string",
+							"required": false,
+							"default": "",
+							"description": "Appends the designated CSP value to each hyperlink.",
+							"location": "query"
+						},
+						"days": {
+							"type": "string",
+							"required": false,
+							"default": "0",
+							"description": "Returns stories that are no older than X days old, where X equals the input value.",
+							"location": "query"
+						},
+						"page": {
+							"type": "string",
+							"required": false,
+							"default": "0",
+							"description": "Returns the Xth page of results, where X equals the input value.",
+							"location": "query"
+						},
+						"encoding": {
+							"type": "string",
+							"required": true,
+							"default": "json",
+							"description": "Output format as JSON or RSS",
+							"enum": ["json", ""],
+							"enumDescriptions": ["json", "rss"],
+							"location": "query"
+						}
+					},
+					"id": "ArticlesMethods.TopNews"
+				},
+				"CommunityFeedMethods": {
+					"path": "articles/{community}",
+					"httpMethod": "GET",
+					"description": "Community feeds return content from any one of USA TODAY's blogs in reverse chronological order.",
+					"parameters": {
+						"community": {
+							"type": "string",
+							"required": true,
+							"default": "entertainment",
+							"description": "Use this to request Top News by section. Default is home",
+							"enum": ["religion", "greenhouse", "kindness", "ondeadline", "onpolitics", "theoval", "thecruiselog", "hotelcheckin", "todayinthesky", "driveon", "campusrivalry", "christinebrennan", "dailypitch", "fantasyjoe", "fantasywindup", "mma", "gameon", "thehuddle", "idolchatter", "entertainment", "livefrom", "pawprintpost", "popcandy", "gamehunters", "sciencefair", "technologylive"],
+							"location": "path",
+							"enumDescriptions": ["religion", "greenhouse", "kindness", "ondeadline", "onpolitics", "theoval", "thecruiselog", "hotelcheckin", "todayinthesky", "driveon", "campusrivalry", "christinebrennan", "dailypitch", "fantasyjoe", "fantasywindup", "mma", "gameon", "thehuddle", "idolchatter", "entertainment", "livefrom", "pawprintpost", "popcandy", "gamehunters", "sciencefair", "technologylive"]
+						},
+						"encoding": {
+							"type": "string",
+							"required": true,
+							"default": "json",
+							"description": "Output format as JSON or RSS",
+							"enum": ["json", ""],
+							"enumDescriptions": ["json", "rss"],
+							"location": "query"
+						}
+					},
+					"id": "ArticlesMethods.CommunityFeedMethods"
+				}
+			}
+		}
+	}
+}
