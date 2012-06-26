@@ -2,7 +2,7 @@
    "name":"Articles API",
    "version":"1.0",
    "title":"Articles API",
-   "description":"",
+   "description":"Using the USA TODAY Articles API, anybody is capable of constructing their own custom feeds for USA TODAY stories going back to 2004. Stories may be retrieved a number of ways, including pulling editorially prioritized content by section, employing either basic search or tag search, or calling feeds for one of the USA TODAY communities. All article feeds are available in both RSS and JSON formatting.",
    "protocol":"rest",
    "basePath":"http://api.usatoday.com/open",
    "auth":{

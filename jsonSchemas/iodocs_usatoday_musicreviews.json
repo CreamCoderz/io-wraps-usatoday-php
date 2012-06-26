@@ -1,0 +1,169 @@
+{
+   "name":"Music Reviews API",
+   "version":"1.0",
+   "title":"Music Reviews API",
+   "description":"The USA TODAY Music Reviews API provides a method for retrieving USA TODAY music review content. In addition to the textual content of a review, the API returns various types of metadata associated with each title. All reviews information is available in a JSON handler. Please refer to our documentation below which describes in detail how data can be requested and returned.",
+   "protocol":"rest",
+   "basePath":"http://api.usatoday.com/open",
+   "auth":{
+      "key":{
+         "param":"api_key"
+      }
+   },
+   "resources":{
+      "Music Reviews Methods":{
+         "methods":{
+            "Most Recent Music Reviews":{
+               "path":"/reviews/music/recent",
+               "httpMethod":"GET",
+               "description":"Returns the most 25 most recent reviews. The number of reviews returned may be altered using the count parameter.",
+               "parameters":{
+                  "count":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Use this value to set the number of reviews returned. By default, returns 25 reviews.",
+                     "location":"query"
+                  },
+                  "minrating":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Set a minimum rating for the movies to be returned.",
+                     "location":"query"
+                  },
+                  "maxrating":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Set a maximum rating for the movies to be returned.",
+                     "location":"query"
+                  },
+                  "year":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Use this parameter to limit data returned to a specific year.",
+                     "location":"query"
+                  },
+                  "encoding":{
+                     "type":"string",
+                     "required":false,
+                     "default":"json",
+                     "description":"Supports only JSON format",
+                     "enum":[
+                        "json"
+                     ],
+                     "location":"query"
+                  }
+               }
+            },
+            "All reviews for an album":{
+               "path":"/reviews/music/album/search",
+               "httpMethod":"GET",
+               "description":"Returns detailed review information about a specific album.",
+               "parameters":{
+                  "search":{
+                     "type":"string",
+                     "required":true,
+                     "default":"merriweather+post+pavilion",
+                     "description":"Search string for an album name. Example: merriweather+post+pavilion",
+                     "location":"pathReplace"
+                  },
+                  "count":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Use this value to set the number of reviews returned. By default, returns 25 reviews.",
+                     "location":"query"
+                  },
+                  "minrating":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Set a minimum rating for the albums to be returned.",
+                     "location":"query"
+                  },
+                  "maxrating":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Set a maximum rating for the albums to be returned.",
+                     "location":"query"
+                  },
+                  "year":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Use this parameter to limit data returned to a specific year.",
+                     "location":"query"
+                  },
+                  "encoding":{
+                     "type":"string",
+                     "required":false,
+                     "default":"json",
+                     "description":"Supports only JSON format",
+                     "enum":[
+                        "json"
+                     ],
+                     "location":"query"
+                  }
+               }
+            },
+            "All Artists with album reviews":{
+               "path":"/reviews/music/artist/search",
+               "httpMethod":"GET",
+               "description":"Returns detailed review information for all the albums written by a specific artist.",
+               "parameters":{
+                  "search":{
+                     "type":"string",
+                     "required":true,
+                     "default":"animal+collective",
+                     "description":"Search string for artist name. Example: animal+collective",
+                     "location":"pathReplace"
+                  },
+                  "count":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Use this value to set the number of reviews returned. By default, returns 25 reviews.",
+                     "location":"query"
+                  },
+                  "minrating":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Set a minimum rating for the albums to be returned.",
+                     "location":"query"
+                  },
+                  "maxrating":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Set a maximum rating for the albums to be returned.",
+                     "location":"query"
+                  },
+                  "year":{
+                     "type":"string",
+                     "required":false,
+                     "default":"",
+                     "description":"Use this parameter to limit data returned to a specific year.",
+                     "location":"query"
+                  },
+                  "encoding":{
+                     "type":"string",
+                     "required":false,
+                     "default":"json",
+                     "description":"Supports only JSON format",
+                     "enum":[
+                        "json"
+                     ],
+                     "location":"query"
+                  }
+               }
+            }
+         }
+      }
+   }
+   
+}

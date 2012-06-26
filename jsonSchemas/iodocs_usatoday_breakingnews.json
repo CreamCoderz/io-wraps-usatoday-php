@@ -1,0 +1,33 @@
+{
+   "name":"Breaking News API",
+   "version":"1.0",
+   "title":"Breaking News API",
+   "description":"The USA TODAY Breaking News API provides a method for developers to retrieve our breaking news content. Data is presented in an RSS format, with headline, summary text and URLs for the web and mobile sites.",
+   "protocol":"rest",
+   "basePath":"http://api.usatoday.com/open",
+   "auth":{
+      "key":{
+         "param":"api_key"
+      }
+   },
+   "resources":{
+      "Breaking News Methods":{
+         "methods":{
+            "Breaking News":{
+               "path":"/breaking",
+               "httpMethod":"GET",
+               "description":"Retrieves breaking news content. Please note that the breaking new APIS supports only RSS format",
+               "parameters":{
+                  "expired":{
+                     "type":"string",
+                     "required":false,
+                     "default":"true",
+                     "description":"Breaking News items expire (usually after 30 minutes). By default, the Breaking News API only returns unexpired news alerts, and thus, it is often empty. Use expired=true if you wish to return the 10 most recent Breaking News items, regardless of expiration.",
+                     "location":"query"
+                  }
+               }
+            }
+         }
+      }
+   }
+}

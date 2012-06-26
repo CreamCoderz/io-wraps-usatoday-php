@@ -2,7 +2,7 @@
 	"name": "Census API",
 	"version": "1.0",
 	"title": "Census API",
-	"description": "USA TODAY Census API",
+	"description": "The USA TODAY Census API allows developers to easily and programmatically access United States Census information. Data concerning ethnicity, housing, population and race is available from both the 2000 and 2010 census, as well as basic population numbers dating back to the original 1790 census. All data returned in JSON formatting.",
 	"protocol": "rest",
 	"basePath": "http://api.usatoday.com/open",
 	"auth": {
