@@ -24,14 +24,17 @@ if (isset($_GET['keypat'])) {
 <!doctype html>
 <html>
 	<head>
+		<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" media="screen" />
+		<title>USA TODAY Census API - Mashery I/O Wrap Beta</title>
 	</head>
 	<body>
+		<div class="container" id="mainwrap">
 		<header>
 			<h1>USA TODAY Census Sample App</h1>
 		</header>
 		<div class="box">
 			<div class="request">
-				<form id="section" method="GET" action="census_population.php">
+				<form id="section" method="GET" action="census_population.php" class="well">
 					<table>
 						<tr><td>keypat</td><td><input type="text" name="keypat" value="greenville" /></td></tr>
 						<tr><td>keyname</td><td><input type="text" name="keyname" value="placename" /></td></tr>
@@ -55,6 +58,7 @@ if (isset($_GET['keypat'])) {
 						}
 					?>
 		  	<?php endif ?>
+		</div>
 		</div>
 	</body>
 </html>

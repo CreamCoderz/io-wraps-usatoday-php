@@ -53,7 +53,7 @@ $apiConfig = array(
     'oauth_test_user' => '', // and the user ID to use, this can either be a vanity name 'testuser' or a numberic ID '123456'
 
     // Don't change these unless you're working against a special development or testing environment.
-    'basePath' => 'http://api.usatoday.com/',
+    'basePath' => 'http://api.usatoday.com',
     
     // IO Class dependent configuration, you only have to configure the values for the class that was configured as the ioClass above
     'ioFileCache_directory'  =>
