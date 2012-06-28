@@ -61,7 +61,7 @@ Follow the steps below for a quick start to using this client library:
 
 5. Point your browser to one of the example files where this is deployed:
 
-    <pre>Ex: http://localhost/io-wrap-whitli-php/whitli_get_key.php</pre>
+    <pre>Ex: http://localhost/io-wrap-usatoday-php/articles_headlines.php</pre>
 
 ## About / License
 * No warranty expressed or implied. Software as is.
