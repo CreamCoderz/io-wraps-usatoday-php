@@ -1,0 +1,1067 @@
+{
+    "kind": "discovery#restDescription",
+    "discoveryVersion": "v1",
+    "title": "Best Selling Books API",
+    "description": "",
+    "protocol": "rest",
+    "name": "bestsellingbooksapi",
+    "version": "1.0",
+    "basePath": "/open",
+    "rootUrl": "http://api.usatoday.com/",
+    "servicePath": "open/",
+    "baseUrl": "http://api.usatoday.com/open/",
+    "schemas": {
+        "isbnResponse": {
+		"id":"isbnResponse",
+		"type": "object",
+		"properties": {
+			"APIParameters": {
+				"$ref":"apiParameters"
+			},
+			"Title": {
+				"$ref":"isbnTitleEntry"
+			}
+		}
+	},
+	"isbnTitleEntry": {
+		"id":"isbnTitleEntry",
+		"type": "object",
+		"properties": {
+			"Title": {
+				"type":"string"
+			},
+			"TitleAPIUrl": {
+				"type":"string"
+			},
+			"Author": {
+				"type":"string"
+			},
+			"Description": {
+				"type":"string"
+			},
+			"Category": {
+				"$ref":"categoriesArray"
+			},
+			"Class": {
+				"type":"string"
+			},
+			"Formats": {
+				"$ref":"formatsArray"
+			},
+			"FirstBookListAppearace": {
+				"$ref":"bookListByDate"
+			},
+			"MostRecentBookListAppearance": {
+				"$ref":"bookListByDate"
+			},
+			"BookListAppearances": {
+				"type":"integer"
+			},
+			"HighestRank": {
+				"type":"integer"
+			},
+			"RankHistories": {
+				"$ref": "rankHistoriesArray"	
+			}
+		}
+	},
+	"rankHistoriesArray": {
+		"id":"rankHistoriesArray",
+		"type":"array",
+		"items": {
+			"$ref":"rankHistoryEntry"
+		}
+	},
+	"rankHistoryEntry": {
+		"id":"rankHistoryEntry",
+		"type":"object",
+		"properties": {
+			"BookListDate": {
+				"$ref":"bookListByDate"
+			},
+			"Rank": {
+				"type": "integer"
+			}
+		}
+	},
+	"formatsArray": {
+		"id":"formatsArray",
+		"type":"array",
+		"items": {
+			"$ref":"format"
+		}
+	},
+	"titlesResponse": {
+		"id":"titlesResponse",
+		"type": "object",
+		"properties": {
+			"APIParameters": {
+				"$ref":"apiParameters"
+			},
+			"Titles": {
+				"$ref":"titlesArray"
+			}
+		}
+	},
+	"titlesArray": {
+		"id":"titlesArray",
+		"type":"array",
+		"items": {
+			"type": "string"
+		}
+	},
+	"classesResponse": {
+		"id":"classesResponse",
+		"type": "object",
+		"properties": {
+			"APIParameters": {
+				"$ref":"apiParameters"
+			},
+			"Classes": {
+				"$ref":"classesArray"
+			}
+		}
+	},
+	"classesArray": {
+		"id":"classesArray",
+		"type":"array",
+		"items": {
+			"type": "string"
+		}
+	},
+	"categoriesResponse": {
+		"id":"categoriesResponse",
+		"type": "object",
+		"properties": {
+			"APIParameters": {
+				"$ref":"apiParameters"
+			},
+			"Categories": {
+				"$ref":"categoriesArray"
+			}
+		}
+	},
+	"categoriesArray": {
+		"id":"categoriesArray",
+		"type": "array",
+		"items": {
+			"$ref": "categoriesItem"
+		}
+	},
+	"categoriesItem": {
+		"id":"categoriesItem",
+		"type": "object",
+		"properties": {
+			"CategoryID": {
+				"type": "integer"
+			},
+			"CategoryName": {
+				"type": "string"
+			}
+		}
+	},
+	"booksListResponse": {
+		"id": "booksListResponse",
+		"type": "object",
+		"properties": {
+			"APIParameters": {
+				"$ref": "apiParameters"
+			},
+			"BookLists": {
+				"$ref": "bookListsArray"
+			}
+		}
+	},
+	"bookListsArray": {
+		"id": "bookListsArray",
+		"type": "array",
+		"items": {
+			"$ref": "bookList"
+		}
+	},
+	"bookList": {
+		"id": "bookList",
+		"type": "object",
+		"properties": {
+			"BookListEntries": {
+				"$ref":"bookListEntriesArray"
+			},
+			"BookListDate": {
+				"$ref":"bookListByDate"
+			},
+			"Name": {
+				"type":"string",
+				"description":"Name of the book list"
+			}
+		}
+	},
+	"bookListEntries": {
+		"id": "bookListEntriesArray",
+		"type": "array",
+		"items": {
+			"$ref":"bookListEntry"
+		}
+	},
+	"bookListEntry": {
+		"id": "bookListEntry",
+		"type": "object",
+		"properties": {
+			"Rank": {
+				"type":"integer"
+			},
+			"Title": {
+				"type":"string"
+			},
+			"TitleAPIUrl": {
+				"type":"string"
+			},
+			"ISBN": {
+				"type":"string"
+			},
+			"ASIN": {
+				"type":"string"
+			},
+			"Author": {
+				"type":"string"
+			},
+			"BriefDescription": {
+				"type":"string"
+			},
+			"RankLastWeek": {
+				"type":"string"
+			},
+			"Class": {
+				"type":"string"
+			},
+			"Format": {
+				"$ref":"format"
+			},
+			"Category": {
+				"$ref":"category"
+			}
+		}
+	},
+	"format": {
+		"id": "format",
+		"type": "object",
+		"properties": {
+			"ISBN": {
+				"type": "string"
+			},
+			"Name": {
+				"type": "string"
+			},
+			"Publisher": {
+				"type": "string"
+			}
+		}
+	},
+	"category": {
+		"id": "category",
+		"type": "object",
+		"properties": {
+			"CategoryID": {
+				"type":"integer"
+			},
+			"CategoryName": {
+				"type":"string"
+			}
+		}
+	},
+	"booksByDateResponse": {
+		"id": "booksByDateResponse",
+		"type": "object",
+		"properties": {
+			"APIParameters": {
+				"$ref": "apiParameters"
+			},
+			"BookListDates": {
+				"$ref": "bookListDatesArray"
+			}
+		}
+        },
+	"bookListDatesArray": {
+		"id": "bookListDatesArray",
+		"type": "array",
+		"items": {
+			"$ref": "bookListByDate"
+		}
+	},
+	"bookListByDate": {
+		"id": "bookListByDate",
+		"type": "object",
+		"properties": {
+			"Year": {
+				"type": "string"
+			},
+			"Month": {
+				"type": "string"
+			},
+			"Date": {
+				"type": "string"
+			},
+			"BookListAPIUrl": {
+				"type": "string"
+			}
+		}
+	},
+	"apiParameters": {
+		"id": "apiParameters",
+		"type": "object",
+		"properties": {
+			"ISBN": {
+				"type": "string"
+			},
+			"Year": {
+				"type": "string"
+			},
+			"Month": {
+				"type": "string"
+			},
+			"Date": {
+				"type": "string"
+			},
+			"MinYear": {
+				"type": "string"
+			},
+			"MaxYear": {
+				"type": "string"
+			},
+			"Title": {
+				"type": "string"
+			},
+			"Author": {
+				"type": "string"
+			},
+			"Category": {
+				"type": "string"
+			},
+			"Class": {
+				"type": "string"
+			},
+			"ExcludeCurrentWeek": {
+				"type": "string"
+			},
+
+			"RecentWeekAllowance": {
+				"type": "string"
+			},
+			"Count": {
+				"type": "integer"
+			}
+		}
+        }
+    },
+    "resources": {
+        "BestSellingBooksMethods": {
+            "methods": {
+                "AllBestSellingBookListsPublishedSince1993": {
+                    "path": "bestsellers/books/dates",
+                    "httpMethod": "GET",
+                    "description": "Returns the date of each weekly books list published since October 1993, when the books list began",
+                    "parameters": {
+                        "minyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with maxyear to specify a range",
+                            "location": "query"
+                        },
+                        "maxyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with minyear to specify a range",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.AllBestSellingBookListsPublishedSince1993",
+		    "response": {
+			"$ref": "booksByDateRespnse"
+		    }
+                },
+                "BestSellingBookListsForParticularYear": {
+                    "path": "bestsellers/books/dates/{year}",
+                    "httpMethod": "GET",
+                    "description": "Returns the date of each weekly books list for a particular year (published since October 1993, when the books list began)",
+                    "parameters": {
+                        "year": {
+                            "type": "string",
+                            "required": false,
+                            "default": "2011",
+                            "description": "Year in YYYY format",
+                            "location": "path"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.BestSellingBookListsForParticularYear",
+		    "response": {
+			"$ref": "booksByDateResponse"
+		    }
+                },
+                "BestSellingBookListsForParticularYearAndMonth": {
+                    "path": "bestsellers/books/{year}/{month}",
+                    "httpMethod": "GET",
+                    "description": "Returns the date of each weekly books list for a particular year and month (published since October 1993, when the books list began)",
+                    "parameters": {
+                        "year": {
+                            "type": "string",
+                            "required": false,
+                            "default": "2011",
+                            "description": "Year in YYYY format",
+                            "location": "path"
+                        },
+                        "month": {
+                            "type": "string",
+                            "required": false,
+                            "default": "8",
+                            "description": "Month in M or MM format",
+                            "location": "path"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.BestSellingBookListsForParticularYearAndMonth",
+		    "response": {
+			"$ref": "booksListResponse"
+		    }
+                },
+                "Top150BooksMostRecent": {
+                    "path": "bestsellers/books/booklists",
+                    "httpMethod": "GET",
+                    "description": "Returns the most recent top 150 books list, including details on each title",
+                    "parameters": {
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "category": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Category",
+                            "location": "query"
+                        },
+                        "class": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Class",
+                            "location": "query"
+                        },
+                        "title": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Title",
+                            "location": "query"
+                        },
+                        "year": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Year in YYYY format",
+                            "location": "query"
+                        },
+                        "month": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Choose a Month",
+                            "location": "query"
+                        },
+                        "date": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Choose a Date",
+                            "location": "query"
+                        },
+                        "count": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use this value to set the number of books returned.",
+                            "location": "query"
+                        },
+                        "minyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with maxyear to specify a range",
+                            "location": "query"
+                        },
+                        "maxyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with minyear to specify a range",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.Top150BooksMostRecent",
+		    "response": {
+			"$ref": "booksListResponse"
+		    }
+                },
+                "Top150BooksForParticularYear": {
+                    "path": "bestsellers/books/booklists/{year}",
+                    "httpMethod": "GET",
+                    "description": "Returns the dates of each weekly books list for that particular year.",
+                    "parameters": {
+                        "year": {
+                            "type": "string",
+                            "required": true,
+                            "default": "2011",
+                            "description": "Year in YYYY format",
+                            "location": "path"
+                        },
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "category": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Category",
+                            "location": "query"
+                        },
+                        "class": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Class",
+                            "location": "query"
+                        },
+                        "title": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Title",
+                            "location": "query"
+                        },
+                        "count": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use this value to set the number of books returned.",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.Top150BooksForParticularYear",
+		    "response": {
+			"$ref": "booksListResponse"
+		    }
+                },
+                "Top150BooksForParticularYearAndMonth": {
+                    "path": "bestsellers/books/booklists/{year}/{month}",
+                    "httpMethod": "GET",
+                    "description": "Returns the dates of each weekly books list for that particular year and month.",
+                    "parameters": {
+                        "year": {
+                            "type": "string",
+                            "required": true,
+                            "default": "2011",
+                            "description": "Year in YYYY format",
+                            "location": "path"
+                        },
+                        "month": {
+                            "type": "string",
+                            "required": true,
+                            "default": "8",
+                            "description": "Month in M or MM format",
+                            "location": "path"
+                        },
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "class": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Class",
+                            "location": "query"
+                        },
+                        "title": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Title",
+                            "location": "query"
+                        },
+                        "count": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use this value to set the number of books returned.",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.Top150BooksForParticularYearAndMonth",
+		    "response": {
+			"$ref": "booksListResponse"
+		    }
+                },
+                "Top150BooksForParticularDate": {
+                    "path": "bestsellers/books/booklists/{year}/{month}/{date}",
+                    "httpMethod": "GET",
+                    "description": "Returns the dates of each weekly books list for that particular year.",
+                    "parameters": {
+                        "year": {
+                            "type": "string",
+                            "required": true,
+                            "default": "2011",
+                            "description": "Year in YYYY format",
+                            "location": "path"
+                        },
+                        "month": {
+                            "type": "string",
+                            "required": true,
+                            "default": "8",
+                            "description": "Choose a Month",
+                            "location": "path"
+                        },
+                        "date": {
+                            "type": "string",
+                            "required": true,
+                            "default": "4",
+                            "description": "Day of month. Must be a Thursday, when booklists are published.",
+                            "location": "path"
+                        },
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "class": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Class",
+                            "location": "query"
+                        },
+                        "title": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Title",
+                            "location": "query"
+                        },
+                        "count": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use this value to set the number of books returned.",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.Top150BooksForParticularDate",
+		    "response": {
+			"$ref": "booksListResponse"
+		    }
+                },
+                "Categories": {
+                    "path": "bestsellers/books/categories",
+                    "httpMethod": "GET",
+                    "description": "Returns a list of categories used to classify books.",
+                    "parameters": {
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "class": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Class",
+                            "location": "query"
+                        },
+                        "title": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Title",
+                            "location": "query"
+                        },
+                        "year": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Year in YYYY format",
+                            "location": "query"
+                        },
+                        "minyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with maxyear to specify a range",
+                            "location": "query"
+                        },
+                        "maxyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with minyear to specify a range",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.Categories",
+		    "response": {
+			"$ref":"categoriesResponse"
+		    }
+                },
+                "Classes": {
+                    "path": "bestsellers/books/classes",
+                    "httpMethod": "GET",
+                    "description": "Returns a list of available book classes (fiction or non-fiction)",
+                    "parameters": {
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "category": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Category",
+                            "location": "query"
+                        },
+                        "title": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Title",
+                            "location": "query"
+                        },
+                        "year": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Year in YYYY format",
+                            "location": "query"
+                        },
+                        "minyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with maxyear to specify a range",
+                            "location": "query"
+                        },
+                        "maxyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with minyear to specify a range",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.Classes",
+		    "response": {
+			"$ref": "classesResponse"
+		    }
+                },
+                "SearchbyTitle": {
+                    "path": "bestsellers/books/titles/",
+                    "httpMethod": "GET",
+                    "description": "Returns list of titles that have appeared on the books list.",
+                    "parameters": {
+                        "title": {
+                            "type": "string",
+                            "required": false,
+                            "default": "Steve Jobs",
+                            "description": "Title",
+                            "location": "query"
+                        },
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "category": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Category",
+                            "location": "query"
+                        },
+                        "class": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Class",
+                            "location": "query"
+                        },
+                        "year": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Year in YYYY format",
+                            "location": "query"
+                        },
+                        "minyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with maxyear to specify a range",
+                            "location": "query"
+                        },
+                        "maxyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with minyear to specify a range",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.SearchbyTitle",
+		    "response": {
+			"$ref": "titlesResponse"
+		    }
+                },
+                "SearchbyISBN": {
+                    "path": "bestsellers/books/titles/{isbn}",
+                    "httpMethod": "GET",
+                    "description": "Returns list of titles that have appeared on the books list.",
+                    "parameters": {
+                        "isbn": {
+                            "type": "string",
+                            "required": true,
+                            "default": "9781451648539",
+                            "description": "ISBN of the book. Example: 9781451648539 for Steve Jobs Biography",
+                            "location": "path"
+                        },
+                        "author": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Author",
+                            "location": "query"
+                        },
+                        "category": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Category",
+                            "location": "query"
+                        },
+                        "class": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Class",
+                            "location": "query"
+                        },
+                        "year": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Year in YYYY format",
+                            "location": "query"
+                        },
+                        "minyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with maxyear to specify a range",
+                            "location": "query"
+                        },
+                        "maxyear": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Use with minyear to specify a range",
+                            "location": "query"
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "description": "Output format as JSON or XML",
+                            "enum": [
+                                "json",
+                                "xml"
+                            ],
+                            "location": "query",
+                            "enumDescriptions": [
+                                "json",
+                                "xml"
+                            ]
+                        }
+                    },
+                    "id": "BestSellingBooksMethods.SearchbyISBN",
+		    "response": {
+			"$ref":"isbnResponse"
+		    }
+                }
+            }
+        }
+    }
+}
