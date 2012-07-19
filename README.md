@@ -30,7 +30,9 @@ Client libraries make life easier by bringing the API into your native language 
     $api = new apiService($client);
 
     // Make an API call and store the response in an object
-    $StoryList = new StoryList($api -> ArticleMethods -> TopNews ("json","sports"));
+    $StoryList = new StoryList(
+        $service->ArticlesMethods->TopNews("json", "sports")
+    );
 
     // Iterate through the list of stories, and echo the titles
     foreach ($StoryList->getStories() as $story) {
@@ -61,7 +63,7 @@ Follow the steps below for a quick start to using this client library:
 
 5. Point your browser to one of the example files where this is deployed:
 
-    <pre>Ex: http://localhost/io-wrap-usatoday-php/articles_headlines.php</pre>
+    <pre>Ex: http://localhost/io-wraps-usatoday-php/examples/articles_headlines.php</pre>
 
 ## About / License
 * No warranty expressed or implied. Software as is.
