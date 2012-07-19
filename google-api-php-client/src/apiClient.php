@@ -148,14 +148,21 @@ class apiClient {
   }
 
   /**
-   * Set the developer key to use, these are obtained through the API Console.
-   * @see http://code.google.com/apis/console-help/#generatingdevkeys
+   * Set the developer key to use
    * @param string $developerKey
    */
   public function setDeveloperKey($developerKey) {
     self::$auth->setDeveloperKey($developerKey);
   }
-
+  
+  /**
+   * * Set the developer shared secret to use
+   * @param string $developersecret
+   */
+  public function setDeveloperSecret($developerSecret) {
+    self::$auth->setDeveloperSecret($developerSecret);
+  }
+    
   /**
    * Set the application name, this is included in the User-Agent HTTP header.
    * @param string $applicationName

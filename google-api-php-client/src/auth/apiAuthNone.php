@@ -60,18 +60,30 @@ class apiAuthNone extends apiAuth {
     if (!empty($apiConfig['developer_key'])) {
       $this->setDeveloperKey($apiConfig['developer_key']);
     }
+        if (!empty($apiConfig['developer_secret'])) {
+                $this->setDeveloperSecret($apiConfig['developer_secret']);
+        }
   }
 
   public function setDeveloperKey($key) {$this->key = $key;}
 
   public function sign(apiHttpRequest $request) {
   	global $apiConfig;
+    $sig = "";
     if ($this->key) {
-      $request->setUrl($request->getUrl() . ((strpos($request->getUrl(), '?') === false) ? '?' : '&')
-          . $apiConfig['key_name'].'='.urlencode($this->key));
+        if ($this->secret) {
+            $sig = md5($this->key . $this->secret . (string)time());
+    }
+      $request->setUrl(
+        $request->getUrl() . 
+        ((strpos($request->getUrl(), '?') === false) ? '?' : '&') .
+        $apiConfig['key_name'].'='.urlencode($this->key) . 
+        (($sig) ? ('&' . $apiConfig['signature_name'] . '=' . urlencode($sig)) : '')
+      );
         /*
          * Mod above - static "key" parameter name changed
-         * to global $apiConfig variable "key_name"
+         * to global $apiConfig variable "key_name" add signature
+         * if secret exists.
          */
     }
     return $request;

@@ -59,7 +59,6 @@ $apiConfig = array(
     'developer_key' => '',
     'key_name' => 'api_key',
     'key_location' => 'query',
-    'foo' => 'bar',
 
     // Which Authentication, Storage and HTTP IO classes to use.
     'authClass'    => 'apiAuthNone',
