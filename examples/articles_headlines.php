@@ -16,10 +16,19 @@
  */
 session_start();
 
+// Client library (network/authentication)
 require_once "../google-api-php-client/src/apiClient.php";
+
+// USA TODAY resource/method library
 require_once "../google-api-php-client/src/contrib/apiArticlesapiService.php";
+
+// Instantiate client
 $client = new apiClient();
+
+// Set credentials
 $client->setDeveloperKey("YOUR_API_KEY");
+
+// Instantiate service
 $service = new apiArticlesapiService($client);
 
 $StoryList = new StoryList;
@@ -72,7 +81,8 @@ if (isset($_GET['section'])) {
                             <option value="nba">nba</option>
                             <option value="nhl">nhl</option>
                             <option value="collegefootball">collegefootball</option>
-                            <option value="collegebasketball">collegebasketball</option>
+                            <option 
+                                value="collegebasketball">collegebasketball</option>
                             <option value="highschool">highschool</option>
                             <option value="motorsports">motorsports</option>
                             <option value="golf">golf</option>
@@ -94,10 +104,10 @@ if (isset($_GET['section'])):
 ?>
 <hr />Results<br /><br />
 <?php
-    /*
-     * Iterate through each story object, and hyperlink the
-     * title of each article
-     */
+/*
+ * Iterate through each story object, and hyperlink the
+ * title of each article
+ */
 foreach ($StoryList->getStories() as $story) {
     echo("<a href='" . $story->getLink() . "' target='_blank'>");
     echo($story -> getTitle());

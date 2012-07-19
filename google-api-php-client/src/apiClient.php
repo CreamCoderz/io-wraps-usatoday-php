@@ -20,7 +20,7 @@
  * 
  * Note that the original work's copyright and license information is located at
  * the top of this file. Any modifications made by Mashery, Inc. are licensed
- * under the MIT License.
+ * under the following license.
  * 
  * Copyright (c) 2012 Mashery, Inc. 
  *
@@ -145,26 +145,6 @@ class apiClient {
    */
   public function setAuthClass($authClassName) {
     self::$auth = new $authClassName();
-  }
-
-  public function authenticate() {
-    $service = $this->prepareService();
-    $this->authenticated = true;
-    return self::$auth->authenticate($service);
-  }
-
-  /**
-   * Construct the OAuth 2.0 authorization request URI.
-   * @return string 
-   */
-  public function createAuthUrl() {
-    $service = $this->prepareService();
-    return self::$auth->createAuthUrl($service['scope']);
-  }
-
-  private function prepareService() {
-    $service = $this->defaultService;
-    return $service;
   }
 
   /**

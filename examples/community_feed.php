@@ -16,10 +16,19 @@
  */
 session_start();
 
+// Client library (network/authentication)
 require_once "../google-api-php-client/src/apiClient.php";
+
+// USA TODAY resource/method library
 require_once "../google-api-php-client/src/contrib/apiArticlesapiService.php";
+
+// Instantiate client
 $client = new apiClient();
-$client->setDeveloperKey("YOUR_KEY_HERE");
+
+// Set credentials
+$client->setDeveloperKey("YOUR_API_KEY");
+
+// Instantiate service
 $service = new apiArticlesapiService($client);
 
 $StoryList = new StoryList;
@@ -64,7 +73,8 @@ if (isset($_GET['community'])) {
                             <option value="todayinthesky">todayinthesky</option>
                             <option value="driveon">driveon</option>
                             <option value="campusrivalry">campusrivalry</option>
-                            <option value="christinebrennan">christinebrennan</option>
+                            <option 
+                                value="christinebrennan">christinebrennan</option>
                             <option value="dailypitch">dailypitch</option>
                             <option value="fantasyjoe">fantasyjoe</option>
                             <option value="fantasywindup">fantasywindup</option>
@@ -84,7 +94,8 @@ if (isset($_GET['community'])) {
                         <br />
                         <br />
                         <br />
-                        <input type="submit" value="Search Community Blog Articles" />
+                        <input type="submit" 
+                            value="Search Community Blog Articles" />
                     </form>
                 </div>
 <?php

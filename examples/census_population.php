@@ -16,10 +16,19 @@
  */
 session_start();
 
+// Client library (network/authentication)
 require_once "../google-api-php-client/src/apiClient.php";
+
+// USA TODAY resource/method library
 require_once "../google-api-php-client/src/contrib/apiCensusapiService.php";
+
+// Instantiate client
 $client = new apiClient();
-$client->setDeveloperKey("YOUR_KEY_HERE");
+
+// Set credentials
+$client->setDeveloperKey("YOUR_API_KEY");
+
+// Instantiate service
 $service = new apiCensusapiService($client);
 
 $response = "";
@@ -64,7 +73,8 @@ if (isset($_GET['keypat'])) {
                                 value="greenville" /></td></tr>
                             <tr><td>keyname</td><td><input type="text" name="keyname" 
                                 value="placename" /></td></tr>
-                            <tr><td>sumlevid</td><td><input type="text" name="sumlevid" 
+                            <tr><td>sumlevid</td><td><input type="text" 
+                                name="sumlevid" 
                                 value="4,6" /></td></tr>
                         </table>
                         <br />
